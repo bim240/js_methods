@@ -11,36 +11,78 @@
     <script>
       // Go through todo.md before start solving.
       function countAllPeople() {
-        // your code goes here
+        return got.houses
+          .reduce((sum, v, i) => (sum += got.houses[i].people.length), 0)
+          .sort();
         console.log(got);
       }
 
       function peopleByHouses() {
-        // your code goes here
+        console.log(
+          got.houses.reduce((acc, v, i) => {
+            acc[got.houses[i].name] = got.houses[i].people.length;
+            return acc;
+          }, {})
+        );
       }
 
       function everyone() {
-        // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter((v1, j) => arr.push(v1.name));
+          return arr;
+        }, []);
       }
 
       function nameWithS() {
         // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter(va => {
+            if (va.name.toLowerCase().includes("s")) arr = arr.concat(va.name);
+          });
+          return arr;
+        }, []);
       }
 
       function nameWithA() {
         // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter(va => {
+            if (va.name.toLowerCase().includes("s")) arr = arr.concat(va.name);
+          });
+          return arr;
+        }, []);
       }
 
       function surnameWithS() {
         // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter(va => {
+            if (va.name.toLowerCase().split(" ")[1][0] == "s")
+              arr = arr.concat(va.name);
+          });
+          return arr;
+        }, []);
       }
 
       function surnameWithA() {
         // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter(va => {
+            if (va.name.toLowerCase().split(" ")[1][0] == "a")
+              arr = arr.concat(va.name);
+          });
+          return arr;
+        }, []);
       }
 
       function peopleNameOfAllHouses() {
-        // your code goes here
+        return got.houses.reduce((arr, v) => {
+          v.people.filter(va => {
+            // if(va.name.toLowerCase().includes("s"))
+            arr = arr.concat(va.name);
+          });
+          return arr;
+        }, []);
       }
 
       // Testing your result after writing your function
